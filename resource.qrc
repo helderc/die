@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/button">
+        <file>resources/buttons/document-open.png</file>
+        <file>resources/buttons/document-save.png</file>
+        <file>resources/buttons/edit-redo.png</file>
+        <file>resources/buttons/edit-undo.png</file>
+    </qresource>
+</RCC>
