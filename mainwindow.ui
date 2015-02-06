@@ -201,8 +201,8 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionMove_Up"/>
-   <addaction name="actionMove_Down"/>
+   <addaction name="actionMoveUp"/>
+   <addaction name="actionMoveDown"/>
   </widget>
   <action name="action1_to_1">
    <property name="text">
@@ -214,12 +214,20 @@
     <string>1-to-All</string>
    </property>
   </action>
-  <action name="actionMove_Up">
+  <action name="actionMoveUp">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/button/resources/buttons/arrow-up.png</normaloff>:/button/resources/buttons/arrow-up.png</iconset>
+   </property>
    <property name="text">
     <string>Move Up</string>
    </property>
   </action>
-  <action name="actionMove_Down">
+  <action name="actionMoveDown">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/button/resources/buttons/arrow-down.png</normaloff>:/button/resources/buttons/arrow-down.png</iconset>
+   </property>
    <property name="text">
     <string>Move Down</string>
    </property>
@@ -230,6 +238,10 @@
    </property>
   </action>
   <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/button/resources/buttons/help-about.png</normaloff>:/button/resources/buttons/help-about.png</iconset>
+   </property>
    <property name="text">
     <string>About...</string>
    </property>

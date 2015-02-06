@@ -4,5 +4,8 @@
         <file>resources/buttons/document-save.png</file>
         <file>resources/buttons/edit-redo.png</file>
         <file>resources/buttons/edit-undo.png</file>
+        <file>resources/buttons/arrow-down.png</file>
+        <file>resources/buttons/arrow-up.png</file>
+        <file>resources/buttons/help-about.png</file>
     </qresource>
 </RCC>
