@@ -43,9 +43,8 @@ class Main(QMainWindow):
         self.arqImg = None
 
         # conectando os sinais aos slots
-        # self.connect(self.actionAboutQt, SIGNAL('triggered()'), self, SLOT('act_about_qt()'))
+        self.connect(self.actionAboutQt, SIGNAL('triggered()'), self, SLOT('act_about_qt()'))
         self.connect(self.actionAbout, SIGNAL('triggered()'), self, SLOT('act_about()'))
-
 
     def open_image(self):
         self.arqImg = QFileDialog.getOpenFileName(None,
@@ -65,9 +64,9 @@ class Main(QMainWindow):
     @pyqtSlot()
     def act_about(self):
         QMessageBox.about(self,
-                          'DICOM Image Editor',
-                          '<p><font size=\"+4\">DICOM Image Editor</font><br><br>'
-                          'Software to edit headers of DICOM files!</p>'
+                          'DICOM Image Editor (DIE)',
+                          '<p><font size=\"+4\">DICOM Image Editor</font></p>'
+                          '<p>Software to edit headers of DICOM files!</p>'
                           '<p><a href=\"http://helderc.github.io\">'
                           'http://helderc.github.io</a></p>')
 
