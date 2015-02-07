@@ -17,7 +17,7 @@
    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  """
 
-#!/usr/bin/python
+# !/usr/bin/python
 # -*- coding: utf-8 -*-
 
 import sys
@@ -37,6 +37,7 @@ class Main(QMainWindow):
     """
     MainWindow class
     """
+
     def __init__(self, parent=None):
         super(Main, self).__init__(parent)
 
@@ -64,6 +65,8 @@ class Main(QMainWindow):
     def parse_dicom_header(self, dcm_file, side):
         for n, line in enumerate(dcm_file):
             print(n, line)
+
+            #TODO: Create a model of QListView to insert each header line on it.
 
     """
     SLOTS
