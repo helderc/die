@@ -68,9 +68,9 @@ class Main(QMainWindow):
     def act_about(self):
         QMessageBox.about(self,
                           'DICOM Image Editor (DIE)',
-                          '<p><font size=\"+4\">DICOM Image Editor</font></p>'
+                          '<p><font size="+4">DICOM Image Editor</font></p>'
                           '<p>Software to edit headers of DICOM files!</p>'
-                          '<p><a href=\"http://helderc.github.io\">'
+                          '<p><a href="http://helderc.github.io">'
                           'http://helderc.github.io</a></p>')
 
     @pyqtSlot()

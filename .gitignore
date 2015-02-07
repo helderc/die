@@ -2,8 +2,6 @@
 .idea/
 
 # Qt Resource
-*.qrc
-resources/
 pyrcc4.exe
 
 # Byte-compiled / optimized / DLL files
