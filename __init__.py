@@ -28,6 +28,9 @@ from PyQt4.QtCore import *
 # module to read the .ui file
 from PyQt4.uic import *
 
+# loading resource file
+import mainwindow_qrc
+
 
 class Main(QMainWindow):
     """
