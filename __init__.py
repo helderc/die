@@ -21,6 +21,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
+import dicom
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
@@ -36,33 +37,48 @@ class Main(QMainWindow):
     """
     MainWindow class
     """
-    # Janela principal
     def __init__(self, parent=None):
         super(Main, self).__init__(parent)
 
         loadUi('mainwindow.ui', self)
 
-        # image's file name
-        self.arqImg = None
+        # connecting signals to slots
+        self.connect(self.btnOpenImageLeft, SIGNAL('clicked()'),
+                     self, SLOT('act_open_image()'))
+        self.connect(self.btnOpenImageRight, SIGNAL('clicked()'),
+                     self, SLOT('act_open_image()'))
+        self.connect(self.actionAboutQt, SIGNAL('triggered()'),
+                     self, SLOT('act_about_qt()'))
+        self.connect(self.actionAbout, SIGNAL('triggered()'),
+                     self, SLOT('act_about()'))
 
-        # conectando os sinais aos slots
-        self.connect(self.actionAboutQt, SIGNAL('triggered()'), self, SLOT('act_about_qt()'))
-        self.connect(self.actionAbout, SIGNAL('triggered()'), self, SLOT('act_about()'))
+    def open_image(self, side):
+        dcm_filename = QFileDialog.getOpenFileName(None,
+                                                   'Open image', 'image',
+                                                   'DICOM (*.dcm *.dicom);;'
+                                                   'All files (*)')
+        dcm = dicom.read_file(dcm_filename)
+        self.parse_dicom_header(dcm, side)
 
-    def open_image(self):
-        self.arqImg = QFileDialog.getOpenFileName(None,
-                                                  'Open image', 'Image',
-                                                  'Image (*.tif *.tiff *.bmp'
-                                                  '*.jpg *.jpeg *.gif *.png);;'
-                                                  'All files (*)')
 
-    '''
+    def parse_dicom_header(self, dcm_file, side):
+        for n, line in enumerate(dcm_file):
+            print(n, line)
+
+    """
     SLOTS
-    '''
+    """
 
     @pyqtSlot()
     def act_open_image(self):
-        self.open_image()
+        print(self.sender().objectName())
+
+        if self.sender() == 'btnOpenImageLeft':
+            print('LEFT Side')
+            self.open_image('left')
+        else:
+            print('RIGTH Side')
+            self.open_image('right')
 
     @pyqtSlot()
     def act_about(self):
