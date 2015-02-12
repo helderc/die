@@ -63,8 +63,30 @@ class Main(QMainWindow):
 
 
     def parse_dicom_header(self, dcm_file, side):
-        for n, line in enumerate(dcm_file):
-            print(n, line)
+        for key in sorted(dcm_file.keys()):
+            #print(key, '\t\t\t', dcm_file[key].value)
+            #if (key != '(0019, 1061)' and key != '(0019, 1063)'):
+
+            #node_id = parent + "." + hex(id(data_element))
+
+            item_text = str(key) + ' --> '
+
+            data_element = dcm_file[key]
+
+            if isinstance(data_element.value, str):
+                item_text = item_text + data_element.value
+            if data_element.VR == "SQ":   # a sequence
+                item_text2 = ''
+                for i, dataset in enumerate(data_element.value):
+                    sq_item_description = data_element.name.replace(" Sequence", "")  # XXX not i18n
+                    item_text2.__add__("{0:s} {1:d}".format(sq_item_description, i + 1))
+
+                item_text = item_text2
+
+            #print(str(key) + ' --> ' + str(type(dcm_file[key].value)) + ': ' +  str(dcm_file[key].VR))
+
+            item = QListWidgetItem(item_text)
+            self.listWidgetLeft.addItem(item)
 
             #TODO: Create a model of QListView to insert each header line on it.
 
