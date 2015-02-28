@@ -98,7 +98,10 @@ class Main(QMainWindow):
     def act_open_image(self):
         print(self.sender().objectName())
 
-        if self.sender() == 'btnOpenImageLeft':
+        a = self.sender().objectName()
+        type(a)
+
+        if self.sender().objectName() == 'btnOpenImageLeft':
             print('LEFT Side')
             self.open_image('left')
         else:
